@@ -15,8 +15,20 @@ class TodoList extends StatelessWidget {
           final todo = todos[index];
           return Card(
             child: Padding(
-              child: Text(todo.title),
-              padding: EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(todo.title),
+                  Checkbox(
+                    activeColor: Colors.orange,
+                    value: todo.completed,
+                    onChanged: (_) {
+                      context.read<TodosController>().toggle(todo);
+                    },
+                  )
+                ],
+              ),
+              padding: EdgeInsets.all(10.0),
             ),
           );
         });
