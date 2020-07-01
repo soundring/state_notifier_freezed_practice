@@ -75,6 +75,7 @@ class TodosController extends StateNotifier<TodosState> with LocatorMixin {
   void delete(Todo target) {
     final currentState = state;
     final todos = currentState.todos
+        //一致したものを除外してリスト化
         .where((currentTodo) => currentTodo.id != target.id)
         .toList();
     state = TodosState(todos: todos);
