@@ -15,13 +15,21 @@ class CounterPage extends StatelessWidget {
               context.select<CounterState, String>((s) => s.count.toString()),
               style: Theme.of(context).textTheme.headline4,
             ),
-            FlatButton(
-              padding: EdgeInsets.all(20.0),
-              color: Colors.lightBlue,
-              onPressed: () {
-                Navigator.pushNamed(context, '/todo_page');
-              },
-              child: Text('Todoへ'),
+            Padding(
+              padding: const EdgeInsets.only(top: 200.0),
+              child: FlatButton(
+                padding: EdgeInsets.all(20.0),
+                color: Colors.lightBlue,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/todo_page');
+                },
+                child: Text(
+                  'Todoリストへ',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
           ],
         ),

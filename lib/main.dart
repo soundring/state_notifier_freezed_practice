@@ -5,6 +5,7 @@ import 'state/counter_state.dart';
 import 'pages/counter_page.dart';
 import 'pages/todo_page.dart';
 import 'pages/add_todo_page.dart';
+import 'pages/edit_todo_page.dart';
 import 'state/todo_state.dart';
 
 void main() {
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
           '/': (context) => CounterPage(),
           '/todo_page': (context) => TodoPage(),
           '/add_todo_page': (context) => AddTodoPage(),
+          '/edit_todo_page': (context) => EditTodoPage(),
         },
       ),
     );

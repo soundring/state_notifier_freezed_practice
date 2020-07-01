@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../widgets/add_tofo.dart';
+import '../widgets/edit_todo.dart';
 
-class AddTodoPage extends StatelessWidget {
+class EditTodoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('追加'),
+        title: Text('編集'),
       ),
-      body: AddTodo(),
+      body: EditTodo(),
     );
   }
 }

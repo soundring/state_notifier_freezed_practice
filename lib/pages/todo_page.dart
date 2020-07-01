@@ -15,7 +15,7 @@ class TodoPage extends StatelessWidget {
         child: Icon(Icons.add),
         backgroundColor: Colors.orangeAccent,
         onPressed: () {
-          Navigator.pushNamed(context, '/add_todo_screen');
+          Navigator.pushNamed(context, '/add_todo_page');
         },
       ),
     );

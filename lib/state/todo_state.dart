@@ -56,4 +56,27 @@ class TodosController extends StateNotifier<TodosState> with LocatorMixin {
       );
     }
   }
+
+  void edit({@required String id, @required String title}) {
+    final currentState = state;
+    if (currentState is TodosStateData) {
+      final todos = currentState.todos.map((t) {
+        if (t.id == id) {
+          return t.copyWith(
+            title: title,
+          );
+        }
+        return t;
+      }).toList();
+      state = TodosState(todos: todos);
+    }
+  }
+
+  void delete(Todo target) {
+    final currentState = state;
+    final todos = currentState.todos
+        .where((currentTodo) => currentTodo.id != target.id)
+        .toList();
+    state = TodosState(todos: todos);
+  }
 }
