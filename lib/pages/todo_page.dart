@@ -7,7 +7,7 @@ class TodoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('Todoリスト'),
+        title: const Text('Todoリスト'),
       ),
       backgroundColor: Colors.grey,
       body: TodoList(),

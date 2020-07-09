@@ -7,7 +7,7 @@ class EditTodoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('編集'),
+        title: const Text('編集'),
       ),
       body: EditTodo(),
     );

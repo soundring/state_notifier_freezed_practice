@@ -8,14 +8,14 @@ class AddTodo extends StatelessWidget {
   Widget build(BuildContext context) {
     String newTodoTitle;
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Center(
             child: Text(
               'Todoを入力してください',
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
             ),
           ),
           TextField(
@@ -25,8 +25,8 @@ class AddTodo extends StatelessWidget {
               newTodoTitle = value;
             },
           ),
-          SizedBox(
-            height: 10.0,
+          const SizedBox(
+            height: 10,
           ),
           RaisedButton(
             child: Text(
@@ -34,15 +34,14 @@ class AddTodo extends StatelessWidget {
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 16.0),
+                  fontSize: 16),
             ),
             color: Colors.orange,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             onPressed: () {
-              if (newTodoTitle == null) {
-                newTodoTitle = 'No Title';
-              }
+              newTodoTitle ??= 'No Title';
+
               context.read<TodosController>().add(newTodoTitle);
               Navigator.pop(context);
             },

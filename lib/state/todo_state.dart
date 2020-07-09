@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:state_notifier/state_notifier.dart';
+import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
 import '../model/todo.dart';
-import 'package:flutter/foundation.dart';
 
 part 'todo_state.freezed.dart';
 
@@ -18,7 +18,8 @@ class TodosController extends StateNotifier<TodosState> with LocatorMixin {
 
   final _uuid = Uuid();
 
-  void initState() async {
+  @override
+  Future<void> initState() async {
     super.initState();
 
     //初期データ

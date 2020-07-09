@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../state/counter_state.dart';
 import 'package:provider/provider.dart';
+import '../state/counter_state.dart';
 
 class CounterPage extends StatelessWidget {
   @override
@@ -16,12 +16,12 @@ class CounterPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headline4,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 200.0),
+              padding: const EdgeInsets.only(top: 200),
               child: FlatButton(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20),
                 color: Colors.lightBlue,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0)),
+                    borderRadius: BorderRadius.circular(30)),
                 onPressed: () {
                   Navigator.pushNamed(context, '/todo_page');
                 },

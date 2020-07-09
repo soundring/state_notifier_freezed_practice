@@ -6,24 +6,24 @@ import '../state/todo_state.dart';
 class EditTodo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
-    final String id = arguments['id'];
-    final String title = arguments['title'];
+    final arguments = ModalRoute.of(context).settings.arguments as Map;
+    final id = arguments['id'].toString();
+    final title = arguments['title'].toString();
 
     TextEditingController _textEditingController;
-    _textEditingController = new TextEditingController(text: title);
+    _textEditingController = TextEditingController(text: title);
 
     String editTodoTitle;
 
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Center(
             child: Text(
               'Todoを編集してください',
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w700),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
             ),
           ),
           TextField(
@@ -34,8 +34,8 @@ class EditTodo extends StatelessWidget {
               editTodoTitle = value;
             },
           ),
-          SizedBox(
-            height: 10.0,
+          const SizedBox(
+            height: 10,
           ),
           RaisedButton(
             child: Text(
@@ -43,15 +43,14 @@ class EditTodo extends StatelessWidget {
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
-                  fontSize: 16.0),
+                  fontSize: 16),
             ),
             color: Colors.orange,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             onPressed: () {
-              if (editTodoTitle == null) {
-                editTodoTitle = title;
-              }
+              editTodoTitle ??= title;
+
               context
                   .read<TodosController>()
                   .edit(id: id, title: editTodoTitle);

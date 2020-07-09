@@ -9,6 +9,7 @@ class TodoList extends StatelessWidget {
   Widget build(BuildContext context) {
     final todos =
         context.select<TodosState, List<Todo>>((state) => state.todos);
+    Todo target;
     return ListView.builder(
         itemCount: todos.length,
         itemBuilder: (_, int index) {
@@ -24,7 +25,7 @@ class TodoList extends StatelessWidget {
                       child: RaisedButton(
                         color: Colors.blue,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0)),
+                            borderRadius: BorderRadius.circular(10)),
                         child: Text(
                           '更新',
                           style: TextStyle(color: Colors.white),
@@ -35,20 +36,20 @@ class TodoList extends StatelessWidget {
                         },
                       ),
                     ),
-                    SizedBox(
-                      width: 5.0,
+                    const SizedBox(
+                      width: 5,
                     ),
                     Expanded(
                       child: RaisedButton(
                         color: Colors.red,
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0)),
+                            borderRadius: BorderRadius.circular(10)),
                         child: Text(
                           '削除',
                           style: TextStyle(color: Colors.white),
                         ),
                         onPressed: () {
-                          Todo target = todo;
+                          target = todo;
                           context.read<TodosController>().delete(target);
                         },
                       ),
@@ -64,7 +65,7 @@ class TodoList extends StatelessWidget {
                     )
                   ],
                 ),
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10),
               ),
             ),
           );

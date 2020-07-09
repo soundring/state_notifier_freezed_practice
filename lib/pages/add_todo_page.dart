@@ -7,7 +7,7 @@ class AddTodoPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
-        title: Text('追加'),
+        title: const Text('追加'),
       ),
       body: AddTodo(),
     );
